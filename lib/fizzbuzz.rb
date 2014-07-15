@@ -1,15 +1,23 @@
 class FizzBuzz
 	def game(number)
-		valHash = {	
-			3 => "Fizz", 
-			5 => "Buzz", 
-			7 => "Zazz", 
-			13 => "Nike" 
+		@final = ""
+		@setOfRules = {
+			"GOD!!" => lambda { number == 47 },
+			"Fizz" => lambda { number % 3 == 0 },
+			"Buzz" => lambda { number % 5 == 0 },
+			"Zazz" => lambda { number % 7 == 0 },
+			"Nike" => lambda { number % 13 == 0 },
+			"Blu" => lambda { number.to_s.include? "1" }
 		}
-		result = ""
-		valHash.each { |mult, word|	result += "#{word}" if (number % mult == 0) }
-		return number.to_s if result.empty?
-		return result
+		andJusticeForAll(number)
+		return number.to_s if @final.empty?
+		return @final
+	end
+	def andJusticeForAll(number)
+		# binding.pry
+		@setOfRules.each do |key, lambda|
+			@final += key if lambda.call
+		end
 	end
 end
 
