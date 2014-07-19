@@ -25,6 +25,7 @@ end
 	puts FizzBuzz.new.game(i)
 end
 
+
 # 3 fizz
 # 5 buzz
 # 7 zazz
