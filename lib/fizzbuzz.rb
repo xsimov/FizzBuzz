@@ -21,7 +21,9 @@ class FizzBuzz
 	end
 end
 
-
+(1..100).to_a.each do |i|
+	puts FizzBuzz.new.game(i)
+end
 
 # 3 fizz
 # 5 buzz
