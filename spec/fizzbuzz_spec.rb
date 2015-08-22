@@ -1,6 +1,6 @@
 require_relative '../lib/fizzbuzz'
 
-RULES = {
+rules = {
   "GOD!!" => lambda { |number| number == 47 },
   "Fizz" => lambda { |number| number % 3 == 0 },
   "Buzz" => lambda { |number| number % 5 == 0 },
@@ -10,7 +10,7 @@ RULES = {
 }
 describe "FizzBuzz game" do
 
-  let(:game) { FizzBuzz.new(RULES) }
+  let(:game) { FizzBuzz.new(rules) }
 
   it "must return a string" do
     expect(game.apply_rules_for(2)).to be_a(String)
@@ -42,6 +42,14 @@ describe "FizzBuzz game" do
 
   it "must return GOD!! when number is 47" do
     expect(game.apply_rules_for(47)).to eq("GOD!!")
+  end
+
+  it "has the basic rules if no rules are passed on instantiation" do
+    regular_game = FizzBuzz.new
+    expect(regular_game.apply_rules_for(1)).to eq("1")
+    expect(regular_game.apply_rules_for(3)).to eq("Fizz")
+    expect(regular_game.apply_rules_for(5)).to eq("Buzz")
+    expect(regular_game.apply_rules_for(15)).to eq("FizzBuzz")
   end
 
 end
