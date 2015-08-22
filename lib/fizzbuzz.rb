@@ -35,11 +35,3 @@ game = FizzBuzz.new(rules)
 (1..100).each do |number|
   puts game.apply_rules_for(number)
 end
-
-# Rules
-#   3 fizz
-#   5 buzz
-#   7 zazz
-#   13 nike
-#   if it contains 1 BLUBLU
-#   EXACT 47 GOD!!
