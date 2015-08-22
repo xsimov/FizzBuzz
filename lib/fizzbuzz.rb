@@ -16,18 +16,18 @@ class FizzBuzz
 
   def and_justice_for_all(number)
     @rules.each do |key, lambda|
-      @final += key if lambda.call
+      @final += key if lambda.call(number)
     end
   end
 end
 
 rules = {
-  "GOD!!" => lambda { number == 47 },
-  "Fizz" => lambda { number % 3 == 0 },
-  "Buzz" => lambda { number % 5 == 0 },
-  "Zazz" => lambda { number % 7 == 0 },
-  "Nike" => lambda { number % 13 == 0 },
-  "Blu" => lambda { number.to_s.include? "1" }
+  "GOD!!" => lambda { |number| number == 47 },
+  "Fizz" => lambda { |number| number % 3 == 0 },
+  "Buzz" => lambda { |number| number % 5 == 0 },
+  "Zazz" => lambda { |number| number % 7 == 0 },
+  "Nike" => lambda { |number| number % 13 == 0 },
+  "Blu" => lambda { |number| number.to_s.include? "1" }
 }
 
 game = FizzBuzz.new(rules)
